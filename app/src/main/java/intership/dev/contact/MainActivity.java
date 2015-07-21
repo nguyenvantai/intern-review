@@ -1,16 +1,26 @@
 package intership.dev.contact;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.ListView;
 
+import java.util.ArrayList;
 
-public class MainActivity extends ActionBarActivity {
+/**
+ * Created by nguyenvantai on 7/21/15.
+ */
+public class MainActivity extends Activity {
+    ListView lvPerson;
+    private ArrayList<Person> mPersons= null;
+    PersonAdapter mAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_contacts);
+
+        lvPerson = (ListView)findViewById(R.id.lvPerson);
+        mPersons =  new ArrayList<Person>();
+
     }
 }
