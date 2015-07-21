@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg.contacts" >
+    
+    <ImageView 
+        android:id="@+id/imgAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"
+        android:layout_centerVertical="true"
+        android:padding="10dp"/>
+    
+    <Button
+        android:id="@+id/btnDelete"
+        android:text="@string/delete"
+        android:textSize="8sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:padding="10dp" />
+    
+    <Button
+        android:id="@+id/btnEdit"
+        android:text="@string/edit"
+        android:textSize="8sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/btnDelete"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:padding="10dp" />
+    
+    <TextView 
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="@string/somtext"
+        android:textColor="@color/cl.contactstext"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/btnEdit"
+        android:layout_toRightOf="@id/imgAvatar"/>
+
+</RelativeLayout>
