@@ -8,20 +8,40 @@ import android.graphics.Bitmap;
 public class Person {
     private Bitmap mAvatar;
     private String mStatus;
-    private Bitmap mCheck;
+    private Bitmap mEdit;
+    private Bitmap mDelete;
 
-    /**
-     *Create class Person include 3 params: mAvatar,mStatus,mCheck
-     * Then,create constructor Person
-     */
-    public Person(Bitmap mAvatar, String mStatus, Bitmap mCheck) {
+    public Person(Bitmap mAvatar, String mStatus, Bitmap mEdit, Bitmap mDelete) {
         this.mAvatar = mAvatar;
         this.mStatus = mStatus;
-        this.mCheck = mCheck;
+        this.mEdit = mEdit;
+        this.mDelete = mDelete;
+    }
+    /**
+     *Create class Person include 4 params: mAvatar,mStatus,mEdit,mDelete
+     * Then,create constructor Person
+     */
+
+
+    public Bitmap getmDelete() {
+        return mDelete;
+    }
+
+    public void setmDelete(Bitmap mDelete) {
+        this.mDelete = mDelete;
+    }
+
+    public Bitmap getmEdit() {
+        return mEdit;
+    }
+
+    public void setmEdit(Bitmap mEdit) {
+        this.mEdit = mEdit;
     }
 
     /**
      *
+
      create getter and setter
      */
 
@@ -41,11 +61,4 @@ public class Person {
         this.mStatus = mStatus;
     }
 
-    public Bitmap getmCheck() {
-        return mCheck;
-    }
-
-    public void setmCheck(Bitmap mCheck) {
-        this.mCheck = mCheck;
-    }
 }

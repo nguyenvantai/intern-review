@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="@dimen/image.height.72dp"
     android:id="@+id/rlCustom_ListVew">
     <ImageView android:id="@+id/imgAvatar"
-        android:layout_height=""
-        android:layout_width=""></ImageView>
+        android:layout_height="@dimen/image.size.47dp"
+        android:layout_width="@dimen/image.size.47dp"
+        android:layout_marginLeft="@dimen/image.marginLeft.23dp"
+        android:layout_marginBottom="@dimen/image.margin.14dp"
+        android:layout_marginTop="@dimen/image.margin.14dp">
+</ImageView>
+    <TextView android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imgAvatar"
+        android:layout_marginLeft="@dimen/image.margin.20dp"
+        android:layout_marginTop="@dimen/image.margin.32dp"
+        android:layout_marginBottom="@dimen/image.margin.32dp"
+        android:text="ddaasa"></TextView>
+    <ImageView android:id="@+id/imgChange"
+        android:layout_toLeftOf="@+id/imgDelete"
+        android:layout_marginLeft="@dimen/image.marginLeft_btnChange.87dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/image.margin_btnChange.26dp"
+        android:layout_marginBottom="@dimen/image.margin_btnChange.26dp"
+        android:src="@drawable/ic_edit"></ImageView>
+    <ImageView android:id="@+id/imgDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/image.marginRight_btnDelete.7dp"
+        android:layout_marginTop="@dimen/image.margin_btnChange.26dp"
+        android:layout_marginBottom="@dimen/image.margin_btnChange.26dp"
+        android:src="@drawable/ic_delete"
+
+  ></ImageView>
 
 
 </RelativeLayout>

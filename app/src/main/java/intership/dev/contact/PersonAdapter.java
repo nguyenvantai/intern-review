@@ -62,7 +62,8 @@ public class PersonAdapter extends BaseAdapter {
     private static class ViewHolder {
         ImageView imgAvatar;
         TextView tvStatus;
-        ImageView imgCheck;
+        ImageView imgEdit;
+        ImageView imgDelete;
     }
 
     /**
@@ -79,6 +80,11 @@ public class PersonAdapter extends BaseAdapter {
                     R.layout.custom_listview_person, parent, false);
             holder = new ViewHolder();
 
+            holder.imgAvatar = (ImageView) convertView.findViewById(R.id.imgAvatar);
+            holder.tvStatus = (TextView) convertView.findViewById(R.id.tvStatus);
+            holder.imgEdit = (ImageView) convertView.findViewById(R.id.imgChange);
+            holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDelete);
+
             //holder.imgAvatar = (TextView) convertView.findViewById(R.id.im);
 
 
@@ -90,7 +96,10 @@ public class PersonAdapter extends BaseAdapter {
         Person sg = (Person) getItem(position);
         holder.imgAvatar.setImageBitmap(sg.getmAvatar());
         holder.tvStatus.setText(sg.getmStatus());
-        holder.imgCheck.setImageBitmap(sg.getmAvatar());
+        holder.imgEdit.setImageBitmap(sg.getmEdit());
+        holder.imgDelete.setImageBitmap(sg.getmDelete());
+
+
 
         return convertView;
     }
