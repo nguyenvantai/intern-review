@@ -34,6 +34,7 @@ public class MainActivity extends Activity {
 
         lvPerson = (ListView)findViewById(R.id.lvPerson);
         mPersons =  new ArrayList<Person>();
+
         // create bitmap to contain image
         Bitmap ic_person1= BitmapFactory.decodeResource(this.getResources(),
                 R.drawable.ic_person1);
@@ -69,55 +70,11 @@ public class MainActivity extends Activity {
 
 
 
-    }
-    // create method onClickEdit from file .xml
-    // control event when you click on image Edit
-    public void onClickEdit( View v){
-//        final Drawable mDrawable = this.getResources().getDrawable(R.drawable.ic_edit_select);
-//        imgEdit.setImageDrawable(mDrawable);
-
 
 
 
     }
-    // create method onClickDelete from file .xml
-    // control event when you click on image Delete
 
-    public void onClickDelete( View v){
-    createDialog();
-
-    }
-    public void createDialog(){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
-
-
-        // set dialog message
-        alertDialogBuilder
-                .setMessage("Are you sure you want to delete???")
-                .setCancelable(false)
-                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        // if this button is clicked, close
-                        // current activity
-                        //MainActivity.this.finish();
-                        //Delete here
-                    }
-                })
-                .setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        // if this button is clicked, just close
-                        // the dialog box and do nothing
-                        dialog.cancel();
-                    }
-                });
-
-        // create alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        // show it
-        alertDialog.show();
-    }
     }
 
 

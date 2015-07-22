@@ -5,12 +5,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -80,7 +82,7 @@ public class PersonAdapter extends BaseAdapter {
      * @return convertView
      */
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(
@@ -92,7 +94,7 @@ public class PersonAdapter extends BaseAdapter {
             holder.imgEdit = (ImageView) convertView.findViewById(R.id.imgEdit);
             holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDelete);
 
-
+            // event for imageDelete when click
             holder.imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -111,8 +113,8 @@ public class PersonAdapter extends BaseAdapter {
                     // Retrieve views from the inflated dialog layout and update their values
 
 
-                    TextView tvConfirm = (TextView) dialog.findViewById(R.id.tvConfirm);
-                    tvConfirm.setText("Are you sure you want to delete"+""+tvName+"?");
+                    final TextView tvConfirm = (TextView) dialog.findViewById(R.id.tvConfirm);
+                    tvConfirm.setText("Are you sure you want to delete"+" "+tvName+"?");
 
                     TextView tvOk = (TextView) dialog.findViewById(R.id.tvOk);
                     tvOk.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +122,12 @@ public class PersonAdapter extends BaseAdapter {
                         public void onClick(View v) {
 
                             //TODO: delete a row have that name
-                           delete_Row();
+                            //remove the item choosen
+                            mPersons.remove(position);
+                            // update Adapter
+                            notifyDataSetChanged();
+
+
                         }
                     });
 
@@ -135,6 +142,13 @@ public class PersonAdapter extends BaseAdapter {
                     // Display the dialog
                     dialog.show();
 
+
+                }
+            });
+            holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    gotoActivity_Contact();
 
                 }
             });
@@ -154,9 +168,13 @@ public class PersonAdapter extends BaseAdapter {
 
         return convertView;
     }
-    public void delete_Row(){
-        // delete here
+    // call method gotoActivity_Contact
+    public void gotoActivity_Contact(){
+        Intent intent = new Intent(mContext,ContactActivity.class);
+        mContext.startActivity(intent);
     }
+
+
 
 
 }

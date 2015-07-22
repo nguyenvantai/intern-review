@@ -7,7 +7,7 @@
     <string name="textview.text.contact">Contact</string>
     <string name="textview.text.OK">OK</string>
     <string name="textview.text.Cancel">Cancel</string>
-    <string name="button.text.OK">OK</string>
+    <string name="button.text.SAVE">SAVE</string>
     <string name="button.text.Cancel">Cancel</string>
 
 

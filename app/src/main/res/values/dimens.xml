@@ -18,7 +18,7 @@
     <dimen name="dialog.height.126dp">126dp</dimen>
     <dimen name="dialog_header.height.97dp">97dp</dimen>
     <dimen name="view.height.1dp">1dp</dimen>
-    <dimen name="view.width.29dp">29dp</dimen>
+    <dimen name="view.width.26dp">26dp</dimen>
 
     <dimen name="textview.size.14sp">14sp</dimen>
     <dimen name="textview.size.20sp">20sp</dimen>
@@ -34,5 +34,6 @@
     <dimen name="edittext.marginTop.25dp">25dp</dimen>
     <dimen name="edittext.marginTop.40dp">40dp</dimen>
     <dimen name="button.width.0dp">0dp</dimen>
+    <dimen name="view.height.35dp">35dp</dimen>
 
 </resources>
