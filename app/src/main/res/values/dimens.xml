@@ -2,30 +2,37 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="activity_contacts.height.53dp">53dp</dimen>
-    <dimen name="activity_contacts.height.18dp">18dp</dimen>
-    <dimen name="activity_contacts.width.18dp">18dp</dimen>
-    <dimen name="activity_contacts.margin.18dp">18dp</dimen>
-    <dimen name="textview.text_size.24sp">24sp</dimen>
-    <dimen name="textview.text_size.100dp">100dp</dimen>
-    <dimen name="image.height.100dp">100dp</dimen>
-    <dimen name="image.size.47dp">47dp</dimen>
-    <dimen name="image.marginLeft.23dp">23dp</dimen>
-    <dimen name="image.margin.14dp">14dp</dimen>
-    <dimen name="image.margin.20dp">14dp</dimen>
-    <dimen name="image.margin.32dp">32dp</dimen>
-    <dimen name="image.marginRight.11dp">11dp</dimen>
-    <dimen name="image.height.16dp">16dp</dimen>
-    <dimen name="image.width.11dp">11dp</dimen>
-    <dimen name="image.marginLeft.86dp">86dp</dimen>
-    <dimen name="image.marginLeft.17dp">17dp</dimen>
-    <dimen name="image.width_btnChange.17dp">17dp</dimen>
-    <dimen name="image.height_btnChange.18dp">18dp</dimen>
-    <dimen name="image.margin_btnChange.26dp">26dp</dimen>
-    <dimen name="image.marginLeft_btnChange.87dp">87dp</dimen>
-    <dimen name="image.width_btnDelete.17dp">17dp</dimen>
-    <dimen name="image.height_btnDelete.18dp">18dp</dimen>
-    <dimen name="image.marginRight_btnDelete.7dp">7dp</dimen>
-    <dimen name="image.height.72dp">72dp</dimen>
+    <dimen name="activity_contacts.height_header.52dp">52dp</dimen>
+    <dimen name="activity_contacts.marginLeft_ic_back.18dp">18dp</dimen>
+    <dimen name="textview.size_contacts.24sp">24sp</dimen>
+
+
+
+
+    <dimen name="rlCustom_ListView.height.72dp">72dp</dimen>
+
+    <dimen name="imgAvatar.marginLeft.22dp">22dp</dimen>
+    <dimen name="textview.size.15sp">15sp</dimen>
+    <dimen name="textview.marginLeft.15dp">15dp</dimen>
+    <dimen name="imgEdit.marginRight.7dp">7dp</dimen>
+    <dimen name="dialog.height.126dp">126dp</dimen>
+    <dimen name="dialog_header.height.97dp">97dp</dimen>
+    <dimen name="view.height.1dp">1dp</dimen>
+    <dimen name="view.width.29dp">29dp</dimen>
+
+    <dimen name="textview.size.14sp">14sp</dimen>
+    <dimen name="textview.size.20sp">20sp</dimen>
+    <dimen name="relativelayout.width.180dp">180dp</dimen>
+
+    <dimen name="relativelayout.width.126dp">126dp</dimen>
+    <dimen name="image.marginLeft.20dp">20dp</dimen>
+
+    <dimen name="image.size.95dp">95dp</dimen>
+
+    <dimen name="textview.marginLeft.28dp">28dp</dimen>
+    <dimen name="edittext.height.48dp">48dp</dimen>
+    <dimen name="edittext.marginTop.25dp">25dp</dimen>
+    <dimen name="edittext.marginTop.40dp">40dp</dimen>
+    <dimen name="button.width.0dp">0dp</dimen>
 
 </resources>

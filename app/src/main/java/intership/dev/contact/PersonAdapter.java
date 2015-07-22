@@ -1,11 +1,16 @@
 package intership.dev.contact;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Adapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -82,10 +87,16 @@ public class PersonAdapter extends BaseAdapter {
 
             holder.imgAvatar = (ImageView) convertView.findViewById(R.id.imgAvatar);
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tvStatus);
-            holder.imgEdit = (ImageView) convertView.findViewById(R.id.imgChange);
+            holder.imgEdit = (ImageView) convertView.findViewById(R.id.imgEdit);
             holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDelete);
 
-            //holder.imgAvatar = (TextView) convertView.findViewById(R.id.im);
+            holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //createDialog();
+                }
+            });
+
 
 
             convertView.setTag(holder);
@@ -103,4 +114,51 @@ public class PersonAdapter extends BaseAdapter {
 
         return convertView;
     }
+    public void createDialog(){
+        final Dialog dialog = new Dialog(mContext);
+        // hide to default title for Dialog
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        // inflate the layout dialog_layout.xml and set it as contentView
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(null);
+        View view = inflater.inflate(R.layout.dialog_activity, null, false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setContentView(view);
+        dialog.setContentView(view);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+
+        // Retrieve views from the inflated dialog layout and update their values
+//        TextView txtTitle = (TextView) dialog.findViewById(R.id.tvConfirm);
+//        txtTitle.setText("Custom Dialog");
+
+        TextView txtMessage = (TextView) dialog.findViewById(R.id.tvConfirm);
+        txtMessage.setText("Do you want to visit the website : https://www.android-ios-tutorials.com ?");
+
+        TextView tvOk = (TextView) dialog.findViewById(R.id.tvOk);
+        tvOk.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                // Open the browser
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.android-ios-tutorials.com"));
+//                startActivity(browserIntent);
+                // Dismiss the dialog
+                dialog.dismiss();
+            }
+        });
+
+        TextView tvCancel = (TextView) dialog.findViewById(R.id.tvCancel);
+        tvCancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Close the dialog
+                dialog.dismiss();
+            }
+        });
+
+        // Display the dialog
+        dialog.show();
+    }
 }
+
+
+

@@ -1,41 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="@dimen/image.height.72dp"
+    android:layout_height="@dimen/rlCustom_ListView.height.72dp"
     android:id="@+id/rlCustom_ListVew">
+
     <ImageView android:id="@+id/imgAvatar"
-        android:layout_height="@dimen/image.size.47dp"
-        android:layout_width="@dimen/image.size.47dp"
-        android:layout_marginLeft="@dimen/image.marginLeft.23dp"
-        android:layout_marginBottom="@dimen/image.margin.14dp"
-        android:layout_marginTop="@dimen/image.margin.14dp">
-</ImageView>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/imgAvatar.marginLeft.22dp"
+        android:layout_centerVertical="true"></ImageView>
+
     <TextView android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/textview.size.15sp"
+        android:layout_centerVertical="true"
+        android:textColor="@color/textview.color.grey"
         android:layout_toRightOf="@+id/imgAvatar"
-        android:layout_marginLeft="@dimen/image.margin.20dp"
-        android:layout_marginTop="@dimen/image.margin.32dp"
-        android:layout_marginBottom="@dimen/image.margin.32dp"
-        android:text="ddaasa"></TextView>
-    <ImageView android:id="@+id/imgChange"
-        android:layout_toLeftOf="@+id/imgDelete"
-        android:layout_marginLeft="@dimen/image.marginLeft_btnChange.87dp"
+        android:layout_marginLeft="@dimen/textview.marginLeft.15dp"></TextView>
+
+    <ImageView android:id="@+id/imgEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/image.margin_btnChange.26dp"
-        android:layout_marginBottom="@dimen/image.margin_btnChange.26dp"
-        android:src="@drawable/ic_edit"></ImageView>
+        android:layout_toLeftOf="@+id/imgDelete"
+        android:layout_centerVertical="true"
+        android:onClick="onClickEdit"></ImageView>
+
     <ImageView android:id="@+id/imgDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/image.marginRight_btnDelete.7dp"
-        android:layout_marginTop="@dimen/image.margin_btnChange.26dp"
-        android:layout_marginBottom="@dimen/image.margin_btnChange.26dp"
-        android:src="@drawable/ic_delete"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/imgEdit.marginRight.7dp"
+        android:onClick="onClickDelete"></ImageView>
 
-  ></ImageView>
+
 
 
 </RelativeLayout>

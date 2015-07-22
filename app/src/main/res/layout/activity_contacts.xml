@@ -1,33 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout
+    android:id="@+id/rlContacts"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout android:id="@+id/rlMain"
+    <RelativeLayout android:id="@+id/rlHeaderBar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/activity_contacts.height.53dp"
+        android:layout_height="@dimen/activity_contacts.height_header.52dp"
         android:background="@color/activity_contacts.color.blue">
+
         <ImageView android:id="@+id/imgBack"
-            android:layout_width="@dimen/activity_contacts.width.18dp"
-            android:layout_height="@dimen/activity_contacts.height.18dp"
-            android:background="@drawable/ic_back"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/activity_contacts.margin.18dp"
-            android:layout_marginBottom="@dimen/activity_contacts.margin.18dp"
-            android:layout_marginTop="@dimen/activity_contacts.margin.18dp"></ImageView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_marginLeft="@dimen/activity_contacts.marginLeft_ic_back.18dp"
+            android:layout_centerVertical="true"></ImageView>
+
         <TextView android:id="@+id/tvContacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/textview.text_size.24sp"
-            android:layout_marginLeft="@dimen/textview.text_size.100dp"
-            android:text="@string/textview.text.contacts"
             android:textColor="@color/textview.color.white"
-            android:layout_centerVertical="true"></TextView>
-
-
+            android:text="@string/textview.text.contacts"
+            android:textSize="@dimen/textview.size_contacts.24sp"
+            android:layout_centerInParent="true"></TextView>
     </RelativeLayout>
     <ListView android:id="@+id/lvPerson"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rlMain"></ListView>
+        android:layout_below="@+id/rlHeaderBar"></ListView>
+
 
 </RelativeLayout>

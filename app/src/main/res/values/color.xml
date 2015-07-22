@@ -3,4 +3,7 @@
     <color name="activity_contacts.color.blue">#00bbd2</color>
     <color name="textview.color.white">#ffffff</color>
 
+    <color name="textview.color.grey">#505050</color>
+    <color name="textview.color.dark">#000000</color>
+
 </resources>
