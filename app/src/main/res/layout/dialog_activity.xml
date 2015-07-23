@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dialog.height.126dp"
         android:layout_centerVertical="true"
-        android:background="#00FFFFFF">
+        android:background="#d9f2f2f2">
         <RelativeLayout android:id="@+id/rlConfirm_first"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dialog_header.height.97dp"

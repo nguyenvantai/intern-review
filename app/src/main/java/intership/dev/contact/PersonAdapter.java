@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,6 +97,26 @@ public class PersonAdapter extends BaseAdapter {
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tvStatus);
             holder.imgEdit = (ImageView) convertView.findViewById(R.id.imgEdit);
             holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDelete);
+            holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext,ContactActivity.class);
+                    Person person = new Person();
+
+                    person.setmAvatar(mPersons.get(position).getmAvatar());
+                    person.setmStatus(mPersons.get(position).getmStatus());
+
+                    intent.putExtra("object",(Parcelable)person);
+
+                    mContext.startActivity(intent);
+
+
+
+
+                }
+            });
+
+
 
             // event for imageDelete when click
             holder.imgDelete.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +151,7 @@ public class PersonAdapter extends BaseAdapter {
                             mPersons.remove(position);
                             // update Adapter
                             notifyDataSetChanged();
+                            dialog.dismiss();
 
 
                         }
@@ -148,14 +171,6 @@ public class PersonAdapter extends BaseAdapter {
 
                 }
             });
-            holder.imgEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gotoActivity_Contact();
-
-                }
-            });
-
 
             convertView.setTag(holder);
         } else {
@@ -165,27 +180,11 @@ public class PersonAdapter extends BaseAdapter {
         Person sg = (Person) getItem(position);
         holder.imgAvatar.setImageResource(sg.getmAvatar());
         holder.tvStatus.setText(sg.getmStatus());
-        holder.imgEdit.setImageResource(sg.getmEdit());
-        holder.imgDelete.setImageResource(sg.getmDelete());
 
 
         return convertView;
     }
-    // call method gotoActivity_Contact
-    public void gotoActivity_Contact(){
-        Intent intent = new Intent(mContext,ContactActivity.class);
-        mPersons = new ArrayList<Person>();
 
-
-        mContext.startActivityForResult(intent,110);
-
-
-
-
-
-
-
-    }
 
 
 

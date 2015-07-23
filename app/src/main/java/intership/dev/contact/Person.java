@@ -1,24 +1,27 @@
 package intership.dev.contact;
 
 import android.graphics.Bitmap;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by nguyenvantai on 7/21/15.
  */
-public class Person {
+public class Person implements Parcelable {
     private int mAvatar;
     private String mStatus;
-    private int mEdit;
-    private int mDelete;
 
-    public Person(int mAvatar, String mStatus, int mEdit,int mDelete) {
+
+    public Person(int mAvatar, String mStatus) {
         this.mAvatar = mAvatar;
         this.mStatus = mStatus;
-        this.mEdit = mEdit;
-        this.mDelete = mDelete;
     }
     public Person(){
 
+    }
+
+    public Person(Parcel str) {
+        readFromParcel(str);
     }
 
     public int getmAvatar() {
@@ -37,19 +40,34 @@ public class Person {
         this.mStatus = mStatus;
     }
 
-    public int getmEdit() {
-        return mEdit;
+
+
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setmEdit(int mEdit) {
-        this.mEdit = mEdit;
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(mStatus);
+        parcel.writeInt(mAvatar);
+
+
     }
 
-    public int getmDelete() {
-        return mDelete;
-    }
+    private void readFromParcel(Parcel Str) {
+        mStatus = Str.readString();
+        mAvatar= Str.readInt();
 
-    public void setmDelete(int mAvatar) {
-        this.mDelete= mDelete;
     }
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Person createFromParcel(Parcel Str) {
+            return new Person(Str);
+        }
+
+        public Person[] newArray(int size) {
+            return new Person[size];
+        }
+    };
 }
+
