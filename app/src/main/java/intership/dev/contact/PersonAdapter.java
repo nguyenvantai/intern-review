@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static intership.dev.contact.R.drawable.drawable_delete;
+
 /**
  * Created by nguyenvantai on 7/21/15.
  * create class PersonAdapter extends BaseAdapter
@@ -28,7 +30,7 @@ import java.util.ArrayList;
  */
 
 public class PersonAdapter extends BaseAdapter {
-    ListView lvPerson;
+    LoadMoreListView lvPerson;
     private ArrayList<Person> mPersons = null;
     private Activity mContext;
 
@@ -98,6 +100,7 @@ public class PersonAdapter extends BaseAdapter {
             holder.imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //holder.imgDelete.setBackground(android.R.drawable.drawable_delete);
                     String tvName = holder.tvStatus.getText().toString();
                     final Dialog dialog = new Dialog(mContext);
                     // hide to default title for Dialog
@@ -160,10 +163,10 @@ public class PersonAdapter extends BaseAdapter {
         }
 
         Person sg = (Person) getItem(position);
-        holder.imgAvatar.setImageBitmap(sg.getmAvatar());
+        holder.imgAvatar.setImageResource(sg.getmAvatar());
         holder.tvStatus.setText(sg.getmStatus());
-        holder.imgEdit.setImageBitmap(sg.getmEdit());
-        holder.imgDelete.setImageBitmap(sg.getmDelete());
+        holder.imgEdit.setImageResource(sg.getmEdit());
+        holder.imgDelete.setImageResource(sg.getmDelete());
 
 
         return convertView;
@@ -171,7 +174,17 @@ public class PersonAdapter extends BaseAdapter {
     // call method gotoActivity_Contact
     public void gotoActivity_Contact(){
         Intent intent = new Intent(mContext,ContactActivity.class);
-        mContext.startActivity(intent);
+        mPersons = new ArrayList<Person>();
+
+
+        mContext.startActivityForResult(intent,110);
+
+
+
+
+
+
+
     }
 
 

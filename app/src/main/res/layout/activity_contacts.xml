@@ -23,10 +23,11 @@
             android:textSize="@dimen/textview.size_contacts.24sp"
             android:layout_centerInParent="true"></TextView>
     </RelativeLayout>
-    <ListView android:id="@+id/lvPerson"
+    <intership.dev.contact.LoadMoreListView
+        android:id="@+id/lvPerson"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rlHeaderBar"></ListView>
+        android:layout_below="@+id/rlHeaderBar"/>
 
 
 </RelativeLayout>
