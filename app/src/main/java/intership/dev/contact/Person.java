@@ -11,15 +11,16 @@ public class Person implements Parcelable {
     private int mAvatar;
     private String mStatus;
 
-
+// create constructor included 2 parameters
     public Person(int mAvatar, String mStatus) {
         this.mAvatar = mAvatar;
         this.mStatus = mStatus;
     }
+    // create constructor dont have parameter
     public Person(){
 
     }
-
+    // implement from MainActivity
     public Person(Parcel str) {
         readFromParcel(str);
     }

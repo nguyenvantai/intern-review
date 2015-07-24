@@ -23,13 +23,13 @@ import java.util.ArrayList;
  */
 public class MainActivity extends Activity {
     private ArrayList<Person> mPersons = null;
-    PersonAdapter mAdapter = null;
-    ImageView imgEdit, imgDelete;
-    TextView id;
+    private PersonAdapter mAdapter = null;
+    private ImageView mEdit, mDelete;
     //Create data use to add listview and use in LoadMoreListView
     private String mNames[] = {"Luke Skywalker Bell", "Minions Stuart", "Allision Vaney",
             "Luke Skywalker Bell", "Minions Stuart", "Allision Vaney",
             "Luke Skywalker Bell", "Minions Stuart", "Allision Vaney",};
+    //Create data image add to listview
     private int mAvatars[] = {R.drawable.ic_person1, R.drawable.ic_person2, R.drawable.ic_person3,
             R.drawable.ic_person1,
             R.drawable.ic_person2,
@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
     LoadMoreListView lvPerson;
 
     @Override
+    // excute result return and set in listview
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
@@ -66,8 +67,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        imgEdit = (ImageView) findViewById(R.id.imgEdit);
-        imgDelete = (ImageView) findViewById(R.id.imgDelete);
+        mEdit = (ImageView) findViewById(R.id.imgEdit);
+        mDelete = (ImageView) findViewById(R.id.imgDelete);
 
         lvPerson = (LoadMoreListView) findViewById(R.id.lvPerson);
         mPersons = new ArrayList<Person>();
