@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -17,6 +18,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,7 +36,8 @@ import static intership.dev.contact.R.drawable.drawable_delete;
 public class PersonAdapter extends BaseAdapter {
     LoadMoreListView lvPerson;
     private ArrayList<Person> mPersons = null;
-    private Activity mContext;
+    final public Activity mContext;
+    public static final int CODE_REQUEST = 110;
 
     public PersonAdapter(Activity context, ArrayList<Person> person) {
         mContext = context;
@@ -49,6 +52,7 @@ public class PersonAdapter extends BaseAdapter {
      * @override getCount-->return size
      * getItem --> return get(possition)
      */
+
 
     @Override
     public int getCount() {
@@ -91,6 +95,7 @@ public class PersonAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(
                     R.layout.custom_listview_person, parent, false);
+
             holder = new ViewHolder();
 
             holder.imgAvatar = (ImageView) convertView.findViewById(R.id.imgAvatar);
@@ -101,14 +106,16 @@ public class PersonAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext,ContactActivity.class);
-                    Person person = new Person();
 
+                    Person person = new Person();
+            // GET information set into class
+                    //give to MainAcitvity to excute
                     person.setmAvatar(mPersons.get(position).getmAvatar());
                     person.setmStatus(mPersons.get(position).getmStatus());
+                    intent.putExtra("object", (Parcelable) person);
+                    intent.putExtra("position",position);
 
-                    intent.putExtra("object",(Parcelable)person);
-
-                    mContext.startActivity(intent);
+                    mContext.startActivityForResult(intent,CODE_REQUEST);
 
 
 
@@ -128,9 +135,11 @@ public class PersonAdapter extends BaseAdapter {
                     // hide to default title for Dialog
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+
                     // inflate the layout dialog_layout.xml and set it as contentView
                     LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     View view = inflater.inflate(R.layout.dialog_activity, null, false);
+                    dialog.setCanceledOnTouchOutside(false);
                     dialog.setCanceledOnTouchOutside(false);
                     dialog.setContentView(view);
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -185,11 +194,15 @@ public class PersonAdapter extends BaseAdapter {
         return convertView;
     }
 
+    }
 
 
 
 
-}
+
+
+
+
 
 
 

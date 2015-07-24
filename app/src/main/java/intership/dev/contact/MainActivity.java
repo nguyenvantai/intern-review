@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -21,23 +22,43 @@ import java.util.ArrayList;
  * Created by nguyenvantai on 7/21/15.
  */
 public class MainActivity extends Activity {
-    public static final int REQUEST_CODE_INPUT=113;
-    private ArrayList<Person> mPersons= null;
+    private ArrayList<Person> mPersons = null;
     PersonAdapter mAdapter = null;
-    ImageView imgEdit,imgDelete;
+    ImageView imgEdit, imgDelete;
+    TextView id;
     //Create data use to add listview and use in LoadMoreListView
-    private String mNames[]={"Luke Skywalker Bell","Minions Stuart","Allision Vaney",
-            "Luke Skywalker Bell","Minions Stuart","Allision Vaney",
-            "Luke Skywalker Bell","Minions Stuart","Allision Vaney",};
-    private int mAvatars[]={R.drawable.ic_person1,R.drawable.ic_person2,R.drawable.ic_person3,
+    private String mNames[] = {"Luke Skywalker Bell", "Minions Stuart", "Allision Vaney",
+            "Luke Skywalker Bell", "Minions Stuart", "Allision Vaney",
+            "Luke Skywalker Bell", "Minions Stuart", "Allision Vaney",};
+    private int mAvatars[] = {R.drawable.ic_person1, R.drawable.ic_person2, R.drawable.ic_person3,
             R.drawable.ic_person1,
             R.drawable.ic_person2,
             R.drawable.ic_person3,
             R.drawable.ic_person1,
             R.drawable.ic_person2,
             R.drawable.ic_person3};
-   // private int mEdit_Delete[]={R.drawable.ic_edit,R.drawable.ic_delete};
+    // private int mEdit_Delete[]={R.drawable.ic_edit,R.drawable.ic_delete};
     LoadMoreListView lvPerson;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        //int position = data.getIntExtra("position", -1);
+        if (requestCode == 110 && resultCode == 123) {
+            Bundle bundle = data.getBundleExtra("name");
+            Person person = bundle.getParcelable("object");
+            String name = person.getmStatus();
+            int position = data.getIntExtra("position", 0);
+
+            mPersons.get(position).setmStatus(name);
+
+
+            mAdapter.notifyDataSetChanged();
+        }
+
+
+    }
 
 
     @Override
@@ -45,32 +66,29 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        imgEdit = (ImageView)findViewById(R.id.imgEdit);
-        imgDelete = (ImageView)findViewById(R.id.imgDelete);
+        imgEdit = (ImageView) findViewById(R.id.imgEdit);
+        imgDelete = (ImageView) findViewById(R.id.imgDelete);
 
-        lvPerson = (LoadMoreListView)findViewById(R.id.lvPerson);
-        mPersons =  new ArrayList<Person>();
+        lvPerson = (LoadMoreListView) findViewById(R.id.lvPerson);
+        mPersons = new ArrayList<Person>();
         lvPerson.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
-               new LoadDataTask().execute();
+                new LoadDataTask().execute();
             }
         });
 
-        for(int i=0;i<mNames.length;i++) {
+        for (int i = 0; i < mNames.length; i++) {
             mPersons.add(new Person(mAvatars[i], mNames[i]));
         }
-        mAdapter = new PersonAdapter(this,mPersons);
+        mAdapter = new PersonAdapter(this, mPersons);
 
         lvPerson.setAdapter(mAdapter);
 
 
-
-
-
-
-
     }
+
+
     // create thread to use LoadMoreListView
     private class LoadDataTask extends AsyncTask<Void, Void, Void> {
 
@@ -87,7 +105,7 @@ public class MainActivity extends Activity {
             } catch (InterruptedException e) {
             }
 
-            for (int i = 0; i < mNames.length; i++){
+            for (int i = 0; i < mNames.length; i++) {
                 Person person = new Person();
                 person.setmAvatar(mAvatars[i]);
                 person.setmStatus(mNames[i]);
@@ -96,7 +114,7 @@ public class MainActivity extends Activity {
 
 
             }
-               // mListItems.add(mNames[i]);
+            // mListItems.add(mNames[i]);
 
             return null;
         }
@@ -122,7 +140,7 @@ public class MainActivity extends Activity {
     }
 
 
-    }
+}
 
 
 
